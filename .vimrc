@@ -18,13 +18,16 @@ call vundle#begin()         "Start vundle
 
 "Vundle, handles itself
 "====================
-Plugin 'VundleVim/Vundle.vim'  
+Plugin 'VundleVim/Vundle.vim'
 "gruvbox for background style
 "========================
 Plugin'morhetz/gruvbox' 
 "emmet html/css plugin
 "======================
 Plugin 'mattn/emmet-vim'
+"NERD TREE file explorer
+"=======================
+Plugin 'scrooloose/nerdtree'
 "End of plugin List
 "===========
 call vundle#end()
@@ -56,6 +59,7 @@ filetype indent on
 set autoread
 
 " show line numbers
+set relativenumber
 set number
 set numberwidth=1
 
@@ -126,3 +130,10 @@ set colorcolumn=80
 " ====================
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" NERD Tree plugin settings
+" ========================
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * wincmd p
+map <C-n> :NERDTreeToggle<CR>
