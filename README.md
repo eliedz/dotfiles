@@ -1,7 +1,14 @@
 ## Dotfiles
 
 #### Zsh
-Currently using Oh-My-Zsh for plugins and themes, will need to install that first
+Using [Oh-My-Zsh](https://ohmyz.sh/) for plugins and themes, will need to 
+install that first
 
 #### Vim
-Using Vundle to manage plugins, will need to be installed manually at first https://github.com/VundleVim/Vundle.vim#quick-start
+Using [Vundle](https://github.com/VundleVim/Vundle.vim#quick-start) to manage
+plugins, will need to be installed manually at first
+
+
+#### tmux
+Using [Oh-My-tmux](https://github.com/gpakosz/.tmux) theme with minor 
+modification regarding pane splitting added to the end of .tmux.conf.local.
