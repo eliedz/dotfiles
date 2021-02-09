@@ -17,17 +17,18 @@ call vundle#begin()         "Start vundle
 "Put all plugins here
 
 "Vundle, handles itself
-"====================
+"========================
 Plugin 'VundleVim/Vundle.vim'
 "gruvbox for background style
 "========================
 Plugin'morhetz/gruvbox' 
-"emmet html/css plugin
-"======================
-Plugin 'mattn/emmet-vim'
-"NERD TREE file explorer
-"=======================
-Plugin 'scrooloose/nerdtree'
+"indentLine for indentation
+"========================
+Plugin 'Yggdroot/indentLine'
+"ale for Async linting
+"========================
+Plugin 'dense-analysis/ale'
+
 "End of plugin List
 "===========
 call vundle#end()
@@ -98,6 +99,16 @@ set foldlevel=99 " don't fold by default
 set ttimeoutlen=50 " don't wait too long for mapped sequences on key codes
 autocmd FileType rst,markdown setlocal spell " spell correction for some files
 
+" YAML editing
+" ------------
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+let g:indentLine_char = '⦙'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
+
+"
 " Messages/Info/Status
 " --------------------
 set ls=2 " always show status line
@@ -126,14 +137,3 @@ if has("gui_running")
               \| let &columns = &numberwidth + 80
 endif
 set colorcolumn=80
-" emmet plugin settings
-" ====================
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-
-" NERD Tree plugin settings
-" ========================
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd VimEnter * wincmd p
-map <C-n> :NERDTreeToggle<CR>
