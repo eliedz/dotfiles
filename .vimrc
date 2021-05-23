@@ -1,5 +1,6 @@
 " don't make vim compatible with vi
 set nocompatible 
+set encoding=utf8
 " set unix line endings
 set fileformat=unix
 " when reading files try unix line endings then dos, also use unix 
